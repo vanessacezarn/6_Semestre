@@ -1,5 +1,5 @@
 # 6_Semestre
-Matérias cursadas no 6° semestre do curso de Ciência de Computação - UFN 2026/1
+Matérias cursadas no 6° semestre do curso de Ciência de Computação - UFN 2026/2
 
 * Antropologia e Cosmovisão Franciscana - Professora: Solange de Moraes Dejeanne
 * Experiência do Usuário - Professora: Ana Paula Canal
