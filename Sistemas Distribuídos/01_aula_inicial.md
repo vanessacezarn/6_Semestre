@@ -61,3 +61,16 @@
     - monitor
     - semáforo
     - deadlock    
+---
+# Sistemas Paralelos
+- fortemente acoplados: fixos em um mesmo lugar via protocolos de modelo TCP/IP: endereço de rede, porta lógica, máscara de rede e protocolos de transporte
+- homogêneo: arquitetura de hardware, sistema operacional e linguagens de programação idênticas de rede
+- cluster computacional
+  - cluster != grid
+- arquitetura: Ponto-a-Ponto
+  - tolerância a falhas: se um ponto falhar o sistema consegue detectar
+  - escalabilidade
+  - segurança
+  - manutenção/atualização
+- objetivo: compartilhar recursos (processador e memória)
+- vai ser estudado mais em programação paralela
