@@ -1,6 +1,5 @@
-
 <div align="center">
-
+  
 # Experiência do Usuário</div>
 
 <div align="center">
@@ -41,7 +40,15 @@
   - gera: sucesso, competição, mudanças na vida das pessoas
   - a forma das interfaces reflete a qualidade física das partes da interação
 
-- interação humana: aspectos culturais, experiências, expectativa 
+### interação humana: aspectos culturais, experiências, expectativa
+  - experiências anteriores do usuário deve ser levadas em conta
+    - usuário com pouca experiência poder ter expectativa não alcançada ➜ frustrante 
+  - psicologia cognitiva: pessoas tendem a simplificar o mundo e relacionar o novo e desconhecido às experiências com objetos que sabem como são
+
+<div align="center">
+  <img width="500" height="184" alt="image" src="https://github.com/user-attachments/assets/a63625ce-e785-4b05-87c8-80fed912b4c2" />
+
+</div>
 
 
 - áreas envolvidas em IHC
@@ -49,5 +56,44 @@
  <img width="645" height="321" alt="image" src="https://github.com/user-attachments/assets/f0a6bded-f83f-4a87-8ccd-4c18c9c6da7b" />
 
 </div>
+
+### Metáforas
+- mostram uma forma de funcionamento da interface
+- proporcionam um modelo mental ➜ faz o usuário remeter a coisas já conhecidas
+  - 'imagens'/ícone que faz o usuário lembrar a algo que ele conhece e está acostumado 
+- é importante utilizar dentro do sistema para 'direcionar' o usuário
+- o uso de metáforas gera uma transferência de conhecimento do mundo real para os computadores (projeto de interface)
+- tipos de metáforas:
+  - temática: uso de temas metafóricos que não reflete exatamente o conteúdo, mas o tema é familiar para o usuário
+  - imersiva: formula um ambiente autêntico que reflete os conteúdos de aprendizagem com sugestões estruturais e docas organizacionais
+ 
+### IHC com qualidade
+- software de qualidade:
+  - intuitivo, completo e que funciona
+  - lançamentos de versões iniciais para o usuário utilizar e dar opinião ➜ testes de usabilidade
+- usabilidade é um critério de qualidade de interação
+  - facilidade de aprendizado ➜ o usuário consegue aprender a utilizar o sistema?
+  - flexibilidade de interação ➜ o usuário consegue realizar as tarefas que necessita?
+  - robustez de interação ➜ o usuário está satisfeito?
+- é importante saber sobre:
+  -  qual o tipo de usuário usará o sistema (perfil) ➜ usuário como parte integrante do sistema
+    - a interface é desenvolvida para compatibilizar as necessidades do usuário com as capacidades do computador
+    - os usuários têm diferentes objetivos, depende de quem são e do que estão fazendo  
+  -  quais tarefas ele precisa realizar
+  -  ele já usa algum sistema
+-  usuário necessita de múltiplos estilos de interface
+  - usuários não precisam de diferentes interfaces e programas para diferentes tarefas, mas seu nível de experiência pode mudar com uma tarefa enquanto usando um programa
+
+--- 
+## Modelos de mentais
+3 modelos conceituais ➜ definição formal da experiência e expectativa
+
+--- 
+## Dark Patterns (Padrões Sombrios)
+
+
+
+
+
 
 
