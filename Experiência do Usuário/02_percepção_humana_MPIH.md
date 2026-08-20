@@ -29,21 +29,41 @@
 - MPIH é uma descrição aproximada para ajudar a prever a interação usuário-computador
 - é composto por:
   - um conjunto de memórias e processadores e um conjunto de princípios de operações
-  - 3 subsistemas:
-    - sistema perceptual (SP)
-      - PP ➜ Processador Perceptual
-      - MIV ➜ Memória Imagem Visual
-      - MIA ➜ Memória Imagem Auditiva
-     - sistema motor (SM)
-        - PM ➜ processador motor
-    - sistema cognitivo (SC)
-      - MCD/MT ➜ Memória de Trabalho ou Memória de Curta Duração
-      - PC ➜ Processador Cognitivo
-      - MLD ➜ Memória de Longa Duração
+  - 3 subsistemas
+### ➤  Subsistemas
+#### ➥ Sistema Perceptual (SP)
+- PP ➜ Processador Perceptual
+- MIV ➜ Memória Imagem Visual
+- MIA ➜ Memória Imagem Auditiva
+#### ➥ Sistema Motor (SM)
+- PM ➜ processador motor
+#### ➥ Sistema Cognitivo (SC)
+- MCD/MT ➜ Memória de Trabalho ou Memória de Curta Duração
+- PC ➜ Processador Cognitivo
+- MLD ➜ Memória de Longa Duração
 
 <div align="center">
   <img width="304" height="318" alt="image" src="https://github.com/user-attachments/assets/cc11c0b4-ed43-4596-87c0-b3e620557595" />
 </div>   
     
+- princípio básico de operações do MPIH é o ciclo Reconhece-Age do PC
+- informação são captadas pela visão e audição ➜ MT ou MCD por meio do PP
+  - MT ➜ consiste na ativação de partes da MLD que os autores chamam de chuncks 
+- PM é acionado pela ativação de certos chunks da MT
+- SP possui sensores e buffers associados:
+  - MIV e MIA
+  - guardam a saída do sistema sensorial enquanto ela está sendo codificada
+- SC recebe informação codificada simbolicamente na MCD ou MT
+  - usa informações armazenada previamente na MLD para tomar decisões de como responder
+- SM viabiliza a resposta
 
-    
+#### Parâmetros de Memórias e Processadores do MPIH  
+- memória
+  - capacidade de armazenamento de itens (u)
+  - o tempo de desbotamento de um item (d)
+  - tipo do código utilizado na gravação: físico, acústico, visual, semântico (k)
+- processador é o tempo de ciclo (t)
+
+<div align="center">
+  <img width="663" height="202" alt="image" src="https://github.com/user-attachments/assets/2c3f4680-9aea-4478-aa48-f7d880126ae7" />
+</div>
