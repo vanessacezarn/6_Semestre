@@ -1,16 +1,10 @@
 <div align="center">
-  
-# Experiência do Usuário</div>
-
-<div align="center">
 
 ## Interfaces Humano-Computador (IHC) </div>
 
 "A maneira como o usuário interage com o computador é tão importante quanto a computação por ela mesma; em outras palavras, a interface usuário, como tem sido chamada, é tão fundamental para a computação como qualquer configuração de processador, sistema operacional ou ambiente de programação” John Anderson (1989)
 
----
-
-### Definições:
+### ➤  Definições:
 - interface interliga dois sistemas
 - "É a parte de um sistema computacional com o qual uma pessoa entra em contanto física, perceptiva e conceitualmente" Moran
 - "Designa um dispositivo que garante a comunicação entre dois sistemas informáticos distintos ou de um sistema informático e uma rede de comunicação."  Pierre Levy
