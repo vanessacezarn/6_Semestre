@@ -76,15 +76,37 @@
   -  quais tarefas ele precisa realizar
   -  ele já usa algum sistema
 -  usuário necessita de múltiplos estilos de interface
-  - usuários não precisam de diferentes interfaces e programas para diferentes tarefas, mas seu nível de experiência pode mudar com uma tarefa enquanto usando um programa
+  - usuários não precisam de diferentes interfaces e programas para diferentes tarefas, mas seu nível de experiência pode mudar com uma tarefa enquanto usando um programa ➜ diferentes técnica de interface são mais apropriadas para diferentes tarefas
 
 --- 
 ## Modelos de mentais
 3 modelos conceituais ➜ definição formal da experiência e expectativa
-
+### Usuário
+- baseado na experiência e expectativa
+- criança ➜ explorar a interface, curiosidade
+- adulto ➜ não são acostumados a explorar sem uma expectativa
+- experiências anteriores negativas podem levar a comportamento superticioso
+### Programador
+- mais fácil de visualizar ➜ explícito, pode ser definido formalmente
+- envolve: plataforma de desenvolvimento, sistema operacional, ferramentas de desenvolvimento, diretrizes de programação
+### Projetista
+- mapeia o modelo do usuário e do programador para o modelo do sistema
 --- 
-## Dark Patterns (Padrões Sombrios)
+### em suma
+IHC descreve os objetos que o usuário trabalha na realização de suas tarefas, sua apresentação e técnicas de interação usadas para manipular os objetos do usuários
+#### no projeto de interfaces, observar:
+- visibilidade e propriedades dos objetos
+  - ações a serem executadas devem estar visíveis na interface
+  - visibilidade dos efeitos das operações para saber se houve sucesso
+- um bom modelo conceitual ➜ preve o efeito das ações
+- bom mapeamento ➜ relação entre duas entidades
+- feedback ➜ resposta às ações 
 
+---
+## Dark Patterns (Padrões Sombrios)
+- são práticas antiéticas de Web Design elaborados para confundir e enganar os usuários induzindo-os a tomarem decisões contrárias aos seus interesses, geralmente em benefício da empresa ou desenvolvedor
+- diretamente ligados as interfaces humano-computador, uma vez que IHC se dedica a proporcionar uma boa experiência ao usuário, o que é totalmente o oposto das práticas Dark Patterns, que manipulam o usuário.
+- Exemplo é quando o usuário ao clicar para fechar um anúncio indesejado acaba iniciando um download, alguns autores chamam essa prática de isca e troca
 
 
 
