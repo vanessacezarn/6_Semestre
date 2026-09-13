@@ -49,7 +49,8 @@
 - 'vive' na borda da rede ➜ roteadores domésticos, firewalls corporativos e gateways de nuvem são os pontos mais comuns onde a NAT é aplicado
 #### Funcionamento
 - o que muda no cabeçalho do pacote ao atravessar o roteador
-  - roteador guarda a correspondência em uma tabela de tradução 
+  - roteador guarda a correspondência em uma tabela de tradução
+    
 | momento | IP de origem | porta de origem | IP de destino|
 | :----:  | :----------: | :-------------: | :-----------:|
 | antes do NAT (rede local) | 192.168.1.10 | 51422 | 200.150.10.5 |
