@@ -53,7 +53,7 @@
 |comando|explicação|
 | :---: | :------: |
 | find / -name "*.conf" | busca por nome a partir da raiz do sistema|
-| find . tyoe f -ntime -7 | arquivos modificados nos últimos 7 dias |
+| find . type f -ntime -7 | arquivos modificados nos últimos 7 dias |
 | find / -perm -4000 2>/dev/null | arquivos com bit SUID (relevante para escalonamento de privilégio |
 | locate nome | busca rápida usando um índice pré-construido (updatedb) |
 
@@ -122,7 +122,7 @@
 | nmap alvo (barra vertical) grep opne | pipe - filtra a saída em tempo real, sem salvar em arquivo |
 
 ### Processos
-- todo processo em execução, inclusive um scan em andamento, é um processo
+- todo programa em execução, inclusive um scan em andamento, é um processo
 
 | comando | explicação |
 | :-----: | :--------: |
