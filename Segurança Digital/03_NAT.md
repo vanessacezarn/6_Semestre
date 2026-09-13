@@ -150,30 +150,32 @@ controlado
 	 - cliete recebe um IP privado do próprio provedor que é traduzido junto com o de centenas de outros cliente ➜ um único IP público na saída da operadora
 - impacto para o usuáario ➜ serviços que exigem uma porta de entrada exclusiva ficam quase impossíveis de configurar sem cooperação do provedor
 - pode impactar investigações ➜ vários usuários usando o mesmo ip público pode dificultar identificar qual usuário fez conexão
-		- para identificar o responsável por uma conexão específica, é necessário cruzar o IP público, porta de origem e horário exato com os registros de tradução (logs de NAT) mantidos pelo provedor
+	- para identificar o responsável por uma conexão específica, é necessário cruzar o IP público, porta de origem e horário exato com os registros de tradução (logs de NAT) mantidos pelo provedor
 
 #### IPv6 e o fim do NAT
 - como o IPv6 tem endereços praticamente inesgotáveis ➜ motivo do NAT deixa de existir (falta de endereços suficientes)  
 - mesmo sem NAT a exposição direta de cada host exige firewalls bem configurados
 
-### NAT e tests de invasão
+### NAT e testes de invasão
 
 - um teste black box só enxerga os endereços públicos da organização ➜ os hosts internos ficam ocultos atrás do NAT
 - o que é alcançável de fora costuma ser o que tem port forwarding ou DMZ configurado
 - movimento lateral ➜ o testador com acesso a um host interno já está 'atrás' do NAT e passa a enxergar a rede local como qualquer outro dispositivo dela
+
 #### Ferramentas de reconhecimento
-- traceroute ou tracert ➜ revela o caminho (salto) que um pacote percorre até o  ➜ útil pra identificar pontos de NAT na rota
-		- envia pacote TTL crescentes e registra qual roteador responde em cada salto, reconstruíndo o caminho até o destino
-		- saltos que aparecem com endereços privados revelam a existência de NAT em algum ponto da rota
-		- firewalls podem bloquear ICMP e mascarar saltos intermediários ➜ rota completa pode não aparecer completa
+- traceroute ou tracert ➜ revela o caminho (salto) que um pacote percorre até o destino ➜ útil pra identificar pontos de NAT na rota
+	- envia pacote TTL crescentes e registra qual roteador responde em cada salto, reconstruíndo o caminho até o destino
+	- saltos que aparecem com endereços privados revelam a existência de NAT em algum ponto da rota
+	- firewalls podem bloquear ICMP e mascarar saltos intermediários ➜ rota completa pode não aparecer completa
 
 - nslookup ou dig ➜ consultas diretas ao serviço de DNS
-		- primeiro passo para descobrir a infraestrutura pública de um alvo
-		- consulta servidores DNS para resolver nomes em endereços IP e vice-versa, além de revelar registros como MX (email) e NS (servidore de nome)
-		- subdominios expostos revelam quais serviços a organização mantém publicamente acessíveis
+	- primeiro passo para descobrir a infraestrutura pública de um alvo
+	- consulta servidores DNS para resolver nomes em endereços IP e vice-versa, além de revelar registros como MX (email) e NS (servidore de nome)
+	- subdominios expostos revelam quais serviços a organização mantém publicamente acessíveis
+
 - whois ➜ consulta pública de registro de domínio e de blocos de endereço IP
-		- revela quem registrou um domínio, datas de criação e expiração, servidores de nome, e donos de um bloco de endereços IP públicos
-		- cuidado com privacidade ➜ muitos registros usam proteção de privacidade que oculta os dados pessoais so titular do dominio
+	- revela quem registrou um domínio, datas de criação e expiração, servidores de nome, e donos de um bloco de endereços IP públicos
+	- cuidado com privacidade ➜ muitos registros usam proteção de privacidade que oculta os dados pessoais so titular do dominio
 
 ### Vulnerabilidade
 - falhas comuns em protocolos ➜ toda vulnerabilidade de rede é um desvio do que o protocolo preia
