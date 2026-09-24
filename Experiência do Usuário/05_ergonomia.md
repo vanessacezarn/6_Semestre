@@ -105,11 +105,57 @@
   - não deve gerar reflexos sobre a tela ou que ofusque os olhos o usuário
   - não deve ser escura para não dificultar a adaptação do olho, ao mudar o foco da tela para o documento
 - ruídos sonoros
-  - ruídos, ainda que toleráveis, prejudicam o rendimento no trabalho
----
-- critérios ergonômicos de software:
-  - artigo 1: 6.1 critérios de Scapin e Bastien ➜ ler, anotar e incluir 1 exemplo
-  - dissertação: 2.3.1 critérios ergonômicos 
-  -  
+  - ruídos, ainda que toleráveis, prejudicam o rendimento no trabalho 
 ---
 ## Ergonomia do Software
+- estuda aspectos relacionados à utilização do software, buscando adequar elementos de software ao conforto dos usuários
+- procura melhorar a interação do usuário com o software
+- envolve:
+  - organização e apresentação das interfaces
+  - as diferentes formas de interação
+  - a ajuda e manual do software
+  - 
+### Princípios básicos da ergonomia
+#### 1) Esforço mínimo do usuário
+- automatizar o que for possível ➜ para o usuário fazer somente as funções absolutamente essenciais
+- não repetir trabalho já realizado
+- documentação escrita suficiente para a tarefa do usuário
+#### 2) Memória mínima
+- aprendizado do sistema deve ser um processo gradativo
+- terminologia deve ser consistente por toda a interação
+- evitar que o usuário precise lembrar comandos ou ações específicas
+#### 3) Frustação mínima
+- evitar demora na execução de tarefas
+- atalhos para facilitar acesso
+- orientações devem estar disponível de forma consistente em todo o sistema
+#### 4) Maximizar o uso de padrões e hábitos
+- padronizar:
+  - função de teclas especiais e combinações de teclas
+  - disposição das informações, botões, itens nas telas
+  - terminologia usada
+- proporcionar o feedback das ações do usuário 
+#### 5) Máxima tolerância às diferenças humanas
+- identificar os perfis de usuários ➜ adaptar a interface aos diferentes perfis
+- chamar a atenção de forma visual e audível ➜ permitir configurar
+- apresentar a informação de forma acessível ao perfil ➜ texto, gráfico
+- relacionado a acessibilidade
+#### 6) Máxima tolerância às diferenças ambientais
+- sistema deve suportar mudanças do ambiente de hardware/software com um mínimo de esforço do usuário
+- as mudanças devem ser informadas ao usuário e dado o suporte necessário
+#### 7) Notificação imediata de problemas
+- notificar sobre um problema tão logo seja detectado ➜ feedback
+- antes de mudanças permanente em dado, o sistema deve mostrar os resultados e solicitar aprovação do usuário
+- edição da entrada deve ser interativa ➜ indicar os erros e prover orientações e meios para correção imediata
+#### 8) Apoio máximo às tarefas
+- usuário não deve precisar de outros recursos para desempenhar a tarefa
+- documentação deve estar disponível, estruturada e com mecanismos de busca
+- o usuário deve possuir acesso a métodos personalizados de obtenção de informação
+  - exemplo: filtros para produção de relatórios 
+
+
+
+
+
+
+
+
