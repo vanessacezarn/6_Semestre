@@ -55,21 +55,31 @@ quantos mais fontes independentes concordarem, melhor a confiança
   - ao registrar um score, informe também a versão do CVSS e o vetor completo 
   - CVSS 3.1 ➜ base, temporal e environmental
     -  métricas de explorabilidade comuns:
-      - AV: vetor de ataque
-      - AC: complexidade
-      - PR: privilégios exigidos
-      - UI: interação do usuário
+        - AV: vetor de ataque
+        - AC: complexidade
+        - PR: privilégios exigidos
+        - UI: interação do usuário
     - escopo e impacto:
-      - S: o impacto atravessa a fronteira de segurança?
-      - C: confidencialidade
-      - I: integridade
-      - A: disponibilidade
+        - S: o impacto atravessa a fronteira de segurança?
+        - C: confidencialidade
+        - I: integridade
+        - A: disponibilidade
   - CVSS 4.0 ➜ base, Threat, Environmental e Supplemental
     - separa melhor impacto no sistema vulnerável e em sistemas subsequentes
     - Thread incorpora maturidade de exploração ao cálculo contextual
     - Environmental adapta o resultado ao ambiente avaliado
     - Supplemntal registra informações úteis sem alterar o score base
- 
+#### CVSS, EPPS e KEV respondem perguntas diferentes
+- CVVS: Quão grave pode ser a vulnerabilidade sob condições definidas?
+- EPPS: Qual a probabilidade estimada de exploração nos próximos 30 dias?
+  - Score: probabilidade entre 0 e 1 de exploração observada
+  - Percentil: posição relativa do CVE quando comparado ao demais registros avaliados
+- CISA KEV: Há evidência de exploração conhecida no mundo real?
+  - O catálogo reúne vulnerabilidades com evidência de exploração ativa.
+  - A presença no KEV aumenta a urgência da análise e da remediação.
+  - A ausência no catálogo não demonstra que o CVE seja seguro.
+  - Confirme se o produto e a versão do ambiente estão realmente afetados 
+
 ### Pesquisa por produto e versão
 - pesquise o nome exato do produto e a versão observada
 - abra o registro e confira descrição, CPE e intervalo de versões
@@ -98,4 +108,28 @@ porta ➜ serviço ➜ versão ➜ CVE ➜ CVSS ➜ Exploit ➜ Aplicável
 
 ### O que investigar primeiro
 - exploração ativa: há abuso conhecido ou evidência local?
-- exposição: o serviço está acessível ao atacante
+- exposição: o serviço está acessível ao atacante?
+- impacto: o ativo e os dados são críticos?
+- viabilidade: existem pré-condições e controles?
+#### Modelo simples de prioridade
+- urgente: exposto, aplicável, alto impacto ou exploração observada
+- alta: condições presentes e ativo importante
+- média: hipótese plausível, com controles ou impacto limitado
+- baixa: pouca evidência, sem exposição ou não aplicável
+
+## Contexto do Ativo
+- headers podem omitir ou falsificar o produto, confirme com outras evidÊncias
+### Superfície de ataque observável
+origem do teste muda o que está exposto e quais controles entram no caminho
+
+- externa: serviços alcançáveis pela internet, DNS, certificados, APIs e painéis
+- interna: serviços corporativos, administração, banco de dados e protocolos legados
+- local: software instalado, permissões, credenciais e configurações do host
+
+### Perguntas antes de buscar o CVE
+- Qual é o produto exato, a versão, a build e a distribuição?
+- O serviço está exposto para qual rede e quais usuários?
+- Há autenticação, proxy, WAF, segmentação ou outro controle?
+- A funcionalidade vulnerável está ativa e acessível?
+- Qual impacto o comprometimento teria para o negócio?
+
