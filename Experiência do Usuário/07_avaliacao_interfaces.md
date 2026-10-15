@@ -91,7 +91,7 @@
   - ensaios de interação
   - sistemas de monitoramento  
 
-## Técnicas Propectivas
+# Técnicas Propectivas
 - buscam a opinião do usuário sobre a interação com o sistema ➜ satisfação
 - pode ser empregada como avaliação analítica ➜ problemas de usabilidade (ISO 9241-10)
 - utilizam questionários/entrevistas
@@ -102,19 +102,20 @@
   - pequeno número de questões sucintas
   - espaço para opiniões e sugestões
   - taxa de devolução <= 30%
-## Técnicas Preditivas ou Diagnósticas
+
+# Técnicas Preditivas ou Diagnósticas
 prever erros de projetos sem a participação direta do usuário
-### Avaliações Heuríticas
+## ➤ Avaliações Heuríticas
 - baseado no conhecimento ergonômico e experiências dos avaliadores
 - examinam o sistema interativo e fazem o diagnóstico dos problemas
-#### avaliações heuríticas de usabilidade
+### ➥ avaliações heurísticas de usabilidade
 - resultados dependem da experiência/competência dos avaliadores
   - vários aspectos: objetivos do usuário, estrutura da interface, objetos da interface, qualidade das interfaces
 - baseiam-se em heurística ou padrões de usabilidade gerais
   - critérios ergonômicos (Scapin e Bastien - 1993)
   - heurísticas de usabilidade (Jacob Nielsen)
   - ISO 9241: 10
-##### Heurísticas (Nielsen,1993)
+#### Heurísticas (Nielsen,1993)
 1) visibilidade do status do sistema
     - sistema deve manter os usuários informados sobre o que está acontecendo ➜ feedback adequado dentro de um tempo razoável
 2) compatibilidade do sistema com o mundo real
@@ -150,14 +151,62 @@ prever erros de projetos sem a participação direta do usuário
     - problema de usabilidade grave ➜ prioridade alta
     - catástrofe de usabilidade ➜ correção antes do produto ser liberado   
         
-#### inspeções cognitivas da intuitividade
-#### inspeções preventivas de erro
+### ➥ inspeções cognitivas da intuitividade
 
 
-
-### Avaliações Analítica
-### Checklists
-
-
+### ➥ inspeções preventivas de erro
+- verificação das interfaces a procura de erros/incidentes
+- formulário organizado em: tarefa, erros, explicações dos erros, causas dos erros, consequência dos erros e recomendações para a reorganização da interface
 
 
+## ➤ Avaliações Analítica
+- aplicadas nas primeiras etapas do desenvolvimento de interfaces humano-computador
+- baseada na descrição da organização das tarefas GOMS - Goals, Operators, Methods, Selection Rules
+- objetivo: verificar consistência, controle do usuário sobre o diálogo, carga de trabalho
+
+## ➤ Checklists
+- vistorias baseadas em listas de verificação
+- busca de problemas da interface, a partir de normas internacionais de Usabilidade
+- questões do checklist: exemplos, explicações, glossário
+- exemplo de verificação 
+  - [Site desenvolvido pela UFSC](https://usabilidade.github.io/)
+  - [Artigo: Avaliação Ergonômica da Interface de Interação da Plataforma Sucupira](https://www.aedb.br/seget/arquivos/artigos18/21926258.pdf)
+
+    
+# Técnica Objetiva ou Empíricas
+constatar problemas a partir da observação do usuário interagindo com o sistema
+
+### ➤ Ensaios de Interação
+- simulação do uso do sistema por representantes do público alvo
+  - sequência a ser aplicada
+  - pode causar constrangimento
+  - pode ser usada a verbalização - 'pensar em voz alta'
+  - local dos teste - laboratório, in loco
+  - planejamento 
+
+### ➤ Sistemas de Monitoramento
+- uso de software de monitoramento
+  - permanecem residentes na máquina do usuário junto do aplicativo
+  - evitam constrangimento
+  - duração restrita ➜ quantidade de dados a tratar pode tornar-se muito grande
+
+## Etapas x Técnicas avaliação (sugestão)
+<div align="center">
+  <img width="831" height="337" alt="image" src="https://github.com/user-attachments/assets/297b2fc6-f135-4a44-aa26-d398da313121" />
+
+</div>
+
+### Plano de testes
+- há laboratórios de usabilidade: abrigam equipe de testadores e projetistas de interfaces
+- não deve ser considerada condição para execução dos testes: existência dos laboratórios e experiência dos avaliadores
+- Objetivo do Teste: o que se deseja obter?
+- Qual ou quais testes serão aplicados?
+- Quando e onde o teste irá acontecer?
+- Qual a duração prevista de cada sessão de teste?
+- Qual o suporte computacional?
+- Quem serão os experimentadores?
+- Quais tarefas serão solicitadas?
+- Qual critério é usado para definir o término correto de uma tarefa?
+- Quanto o experimentador poderá ajudar o usuário durante o teste?
+- Quais dados serão coletados e como serão analisados depois de
+coletados?
