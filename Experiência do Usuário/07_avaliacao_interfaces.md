@@ -75,7 +75,7 @@
   - especialistas em IHC
   - especialistas em outras áreas - psicólogos, engenheiros, publicitários
 
-## Técnicas de Avaliação
+### Técnicas de Avaliação
 - técnicas prospectivas
 - técnicas preditivas ou diagnósticas
   - avaliações heurísticas
@@ -91,7 +91,72 @@
   - ensaios de interação
   - sistemas de monitoramento  
 
+## Técnicas Propectivas
+- buscam a opinião do usuário sobre a interação com o sistema ➜ satisfação
+- pode ser empregada como avaliação analítica ➜ problemas de usabilidade (ISO 9241-10)
+- utilizam questionários/entrevistas
+  - composição dos questionários:
+    - perguntas aberta: usuário opina, discertativa
+    - perguntas fechadas: conjunto pré-estabelecido de respostas, objetivo
+  - servem para avaliação quantitativa e qualitativa
+  - pequeno número de questões sucintas
+  - espaço para opiniões e sugestões
+  - taxa de devolução <= 30%
+## Técnicas Preditivas ou Diagnósticas
+prever erros de projetos sem a participação direta do usuário
+### Avaliações Heuríticas
+- baseado no conhecimento ergonômico e experiências dos avaliadores
+- examinam o sistema interativo e fazem o diagnóstico dos problemas
+#### avaliações heuríticas de usabilidade
+- resultados dependem da experiência/competência dos avaliadores
+  - vários aspectos: objetivos do usuário, estrutura da interface, objetos da interface, qualidade das interfaces
+- baseiam-se em heurística ou padrões de usabilidade gerais
+  - critérios ergonômicos (Scapin e Bastien - 1993)
+  - heurísticas de usabilidade (Jacob Nielsen)
+  - ISO 9241: 10
+##### Heurísticas (Nielsen,1993)
+1) visibilidade do status do sistema
+    - sistema deve manter os usuários informados sobre o que está acontecendo ➜ feedback adequado dentro de um tempo razoável
+2) compatibilidade do sistema com o mundo real
+    - linguagem e conceitos familiares ao usuário
+3) controle do usuário e liberdade
+    - em caso de engano de funções é necessário ter uma 'saída de emergência' clara para sair do estado indesejado sem ter que percorrer um extenso diálogo 
+4) consistência e padrões
+    - seguir convenções da plataforma computacional
+5) prevenção de erros
+    - um design o qual previne o erro antes dele acontecer é melhor que uma boa mensagem
+6) reconhecimento ao invés de lembrança
+    - instruções para uso do sistema devem estar visíveis e facilmente recuperáveis quando necessárias
+7) flexibilidade e eficiência de uso
+    - usuários novatos devem se tornar peritos com usos e usuários experientes 'cortam' caminho em ações frequentes
+8) estética e design minimalista
+    - diálogos não devem conter informações irrelevantes ou raramente necessárias
+9) ajudar os usuários a reconhecer, diagnosticar e corrigir erros
+    - mensagem de erro devem ser expressas em linguagem clara, indicando precisamente o problema e sugerindo uma solução
+10) ajuda e documentação
+    - informações devem ser fáceis de encontrar, focalizadas na tarefa do usuário e não muito extensas.
+- como conduzir a avaliação heurística
+  - pequeno conjunto de avaliadores ➜ 3 a 5
+    - cada um julga a interface/protótipo conforme as heurísticas
+      - percorrer a interface pelo menos 2 vezes  
+  - problemas diagnosticados são consolidados em uma única lista, onde pode-se classificar quanto à gravidade do problema:
+    - frequência do problema: raro ou comum
+    - impacto do problema na interação do usuário: fácil ou difícil de contornar
+    - persistência do problema: 1 vez ou os usuários são repetidamente incomodados por ele
+  - grau de severidade:
+    - não concordo que é um problema de usabilidade
+    - problema cosmético ➜ corrigido se sobrar tempo
+    - problema de usabilidade menor ➜ prioridade baixa
+    - problema de usabilidade grave ➜ prioridade alta
+    - catástrofe de usabilidade ➜ correção antes do produto ser liberado   
+        
+#### inspeções cognitivas da intuitividade
+#### inspeções preventivas de erro
 
+
+
+### Avaliações Analítica
+### Checklists
 
 
 
