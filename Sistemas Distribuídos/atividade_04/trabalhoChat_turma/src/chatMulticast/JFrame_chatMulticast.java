@@ -189,18 +189,41 @@ public class JFrame_chatMulticast extends javax.swing.JFrame {
                     String msgRecebida = new String(pacote.getData(), 0, pacote.getLength());
                     String ipRemetente = pacote.getAddress().getHostAddress();
                     int portaRemetente = pacote.getPort();
+                    
+                    if (msgRecebida.equals(SOLICITAR_USUARIOS)) {
+                        try {
+                            String msg = jTextField_Nick.getText()
+                                    + " entrou na sala";
+
+                            DatagramPacket pacoteResposta = ComunicadorUDP.montaMensagem(
+                                    msg,
+                                    jTextField_GrupoIP.getText(),
+                                    Integer.parseInt(jTextField_Porta.getText())
+                            );
+
+                            socket.send(pacoteResposta);
+
+                        } catch (IOException e) {
+                            JOptionPane.showMessageDialog(meuFrame, e.getMessage());
+                        }
+
+                        continue;
+                    }
 
                     /*Verifica se a mensagem termina com " entrou na sala". Extrai o apelido do usuário. Registra esse apelido no mapa usuarios, associado ao IP e à porta de origem do pacote*/
                     if (msgRecebida.endsWith(" entrou na sala")) {
                         String nickRemetente = msgRecebida.replace(" entrou na sala", "");
 
+                        if (!nickRemetente.equals(jTextField_Nick.getText())) {
                         usuarios.put(nickRemetente,
                                 new InetSocketAddress(ipRemetente, portaRemetente));
+
                         SwingUtilities.invokeLater(() -> {
                             if (!modeloUsuarios.contains(nickRemetente)) {
                                 modeloUsuarios.addElement(nickRemetente);
                             }
                         });
+                    }
                     }
                     
                     if (msgRecebida.endsWith(" saiu da sala")) {
@@ -212,6 +235,8 @@ public class JFrame_chatMulticast extends javax.swing.JFrame {
                             modeloUsuarios.removeElement(nickRemetente);
                         });
                     }
+                    
+                    
 
 
 
@@ -285,15 +310,26 @@ public class JFrame_chatMulticast extends javax.swing.JFrame {
                 String msg = jTextField_Nick.getText() + " entrou na sala";
                 DatagramPacket pacote = ComunicadorUDP.montaMensagem(msg, jTextField_GrupoIP.getText(), Integer.parseInt(jTextField_Porta.getText()));
                 socket.send(pacote);
+                
+                // Solicita a lista dos usuários que já estão online
+                DatagramPacket pacoteUsuarios = ComunicadorUDP.montaMensagem(
+                        SOLICITAR_USUARIOS,
+                        jTextField_GrupoIP.getText(),
+                        Integer.parseInt(jTextField_Porta.getText())
+                );
+
+                socket.send(pacoteUsuarios);
+
                 jTextField_textoDeEnvio.requestFocus();
+                jTextField_textoDeEnvio.requestFocus();
+                
+                
             }
         } catch (HeadlessException | IOException | NumberFormatException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
     }//GEN-LAST:event_jButton_ConectarActionPerformed
    
-    
-    
     
     /**
      * método privado que captura a mensagem escrita na caixa de texto mais o apelido da caixa de texto nick
@@ -316,9 +352,10 @@ public class JFrame_chatMulticast extends javax.swing.JFrame {
                 DatagramPacket pacote = ComunicadorUDP.montaMensagem(msg,jTextField_GrupoIP.getText(),Integer.parseInt(jTextField_Porta.getText()));
                 socket.send(pacote);
             } else {
+                String msgPrivado = "<Privado>" + msg;
                 InetSocketAddress destino = usuarios.get(nickSelecionado);
                 if (destino != null) {
-                    DatagramPacket pacote = ComunicadorUDP.montaMensagem(msg,destino.getAddress().getHostAddress(),destino.getPort());
+                    DatagramPacket pacote = ComunicadorUDP.montaMensagem(msgPrivado,destino.getAddress().getHostAddress(),destino.getPort());
                     socket.send(pacote);
                 } else {
                     JOptionPane.showMessageDialog(this,"Não foi possível localizar o usuário selecionado.");
@@ -424,6 +461,7 @@ public class JFrame_chatMulticast extends javax.swing.JFrame {
     LinkedList<String> lista = new LinkedList<>();
     DefaultListModel<String> modeloUsuarios = new DefaultListModel<>();
     Map<String, InetSocketAddress> usuarios = new HashMap<>();
+    private static final String SOLICITAR_USUARIOS = "LISTAR_USUARIOS";
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
