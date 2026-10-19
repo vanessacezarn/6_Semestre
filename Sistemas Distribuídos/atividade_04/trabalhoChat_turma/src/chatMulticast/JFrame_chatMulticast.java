@@ -190,17 +190,13 @@ public class JFrame_chatMulticast extends javax.swing.JFrame {
                     String ipRemetente = pacote.getAddress().getHostAddress();
                     int portaRemetente = pacote.getPort();
                     
+                    // Responde à solicitação de usuários online
                     if (msgRecebida.equals(SOLICITAR_USUARIOS)) {
+                        String msgResposta = USUARIO_ONLINE + jTextField_Nick.getText();
+
                         try {
-                            String msg = jTextField_Nick.getText()
-                                    + " entrou na sala";
-
                             DatagramPacket pacoteResposta = ComunicadorUDP.montaMensagem(
-                                    msg,
-                                    jTextField_GrupoIP.getText(),
-                                    Integer.parseInt(jTextField_Porta.getText())
-                            );
-
+                                    msgResposta,jTextField_GrupoIP.getText(),Integer.parseInt(jTextField_Porta.getText()));
                             socket.send(pacoteResposta);
 
                         } catch (IOException e) {
@@ -209,6 +205,25 @@ public class JFrame_chatMulticast extends javax.swing.JFrame {
 
                         continue;
                     }
+
+                    // Registra os usuários descobertos sem exibir mensagens no chat
+                    if (msgRecebida.startsWith(USUARIO_ONLINE)) {
+                        String nickRemetente = msgRecebida.substring(USUARIO_ONLINE.length());
+
+                        if (!nickRemetente.equals(jTextField_Nick.getText())) {
+                            usuarios.put(nickRemetente,
+                                    new InetSocketAddress(ipRemetente, portaRemetente));
+
+                            SwingUtilities.invokeLater(() -> {
+                                if (!modeloUsuarios.contains(nickRemetente)) {
+                                    modeloUsuarios.addElement(nickRemetente);
+                                }
+                            });
+                        }
+
+                        continue;
+                    }
+                   
 
                     /*Verifica se a mensagem termina com " entrou na sala". Extrai o apelido do usuário. Registra esse apelido no mapa usuarios, associado ao IP e à porta de origem do pacote*/
                     if (msgRecebida.endsWith(" entrou na sala")) {
@@ -235,11 +250,6 @@ public class JFrame_chatMulticast extends javax.swing.JFrame {
                             modeloUsuarios.removeElement(nickRemetente);
                         });
                     }
-                    
-                    
-
-
-
                     lista.add(msgRecebida);
                     Iterator i = lista.iterator();
                     jTextArea_Mensagens.setText("");
@@ -357,6 +367,17 @@ public class JFrame_chatMulticast extends javax.swing.JFrame {
                 if (destino != null) {
                     DatagramPacket pacote = ComunicadorUDP.montaMensagem(msgPrivado,destino.getAddress().getHostAddress(),destino.getPort());
                     socket.send(pacote);
+                    // Exibe a mensagem também para quem enviou
+                    lista.add("Você para " + nickSelecionado + ": "
+                            + jTextField_textoDeEnvio.getText());
+
+                    SwingUtilities.invokeLater(() -> {
+                        jTextArea_Mensagens.setText("");
+
+                        Iterator<String> i = lista.iterator();
+
+                        while (i.hasNext()) { jTextArea_Mensagens.append(i.next() + "\n");}
+                    });
                 } else {
                     JOptionPane.showMessageDialog(this,"Não foi possível localizar o usuário selecionado.");
                 }
@@ -462,6 +483,7 @@ public class JFrame_chatMulticast extends javax.swing.JFrame {
     DefaultListModel<String> modeloUsuarios = new DefaultListModel<>();
     Map<String, InetSocketAddress> usuarios = new HashMap<>();
     private static final String SOLICITAR_USUARIOS = "LISTAR_USUARIOS";
+    private static final String USUARIO_ONLINE = "USUARIO_ONLINE:";
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
