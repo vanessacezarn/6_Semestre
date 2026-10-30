@@ -12,10 +12,10 @@ end componentes_sistema;
 architecture arquitetura_sistema of componentes_sistema is
     component component_or
         port(e: in bit; f: in bit; g: out bit)
-    and component
+    end component
     component component_and
         port(h: in bit; i: in bit; j: out bit)
-    and component
+    end component
     signal s1, s2 : bit;
     
 begin
