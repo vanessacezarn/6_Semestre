@@ -1,17 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package view;
 
 import com.google.zxing.qrcode.QRCodeWriter;
 import com.google.zxing.BarcodeFormat;
+import com.google.zxing.WriterException;
 import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
 import java.awt.image.BufferedImage;
+import java.rmi.Naming;
+import java.rmi.RemoteException;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import rmi.IencurtaUrl;
 
 
 /**
@@ -21,12 +21,25 @@ import javax.swing.JOptionPane;
 public class interfaceCliente extends javax.swing.JFrame{
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(interfaceCliente.class.getName());
+    
+    private IencurtaUrl interfaceRemota;
 
     /**
      * Creates new form interfaceCliente
      */
     public interfaceCliente() {
         initComponents();
+        try {
+            /*Busca o serviço remoto registrado no servidor*/
+            interfaceRemota = (IencurtaUrl) Naming.lookup("rmi://localhost/EncurtaUrl");
+            lblStatus.setText("CONECTADO AO SERVIDOR COM SUCESSO");
+            lblStatus.setForeground(new java.awt.Color(0, 128, 0));
+
+        } catch (Exception e) {
+            interfaceRemota = null;
+            lblStatus.setText("SERVIDOR DESCONECTADO");
+            lblStatus.setForeground(java.awt.Color.RED);
+        }
     }
 
     /**
@@ -42,13 +55,12 @@ public class interfaceCliente extends javax.swing.JFrame{
         lblUrl = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         btnEnviar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txtURL = new javax.swing.JTextArea();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        txtUrlEncurtada = new javax.swing.JTextArea();
         btnLimpar = new javax.swing.JButton();
         lblQrCode = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        lblStatus = new javax.swing.JLabel();
+        txtUrl = new javax.swing.JTextField();
+        txtURLencurtada = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,14 +78,6 @@ public class interfaceCliente extends javax.swing.JFrame{
             }
         });
 
-        txtURL.setColumns(20);
-        txtURL.setRows(5);
-        jScrollPane1.setViewportView(txtURL);
-
-        txtUrlEncurtada.setColumns(20);
-        txtUrlEncurtada.setRows(5);
-        jScrollPane2.setViewportView(txtUrlEncurtada);
-
         btnLimpar.setText("LIMPAR");
         btnLimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,31 +94,31 @@ public class interfaceCliente extends javax.swing.JFrame{
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(122, 122, 122)
+                        .addGap(134, 134, 134)
+                        .addComponent(btnEnviar)
+                        .addGap(60, 60, 60)
+                        .addComponent(btnLimpar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(160, 160, 160)
                         .addComponent(lblTitulo))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(19, 19, 19)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1)
+                            .addComponent(lblUrl)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblUrl)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel2))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane2)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblQrCode, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(129, 129, 129)
-                        .addComponent(btnEnviar)
-                        .addGap(57, 57, 57)
-                        .addComponent(btnLimpar)))
-                .addContainerGap(54, Short.MAX_VALUE))
+                                .addComponent(jLabel2)
+                                .addGap(12, 12, 12)))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtURLencurtada, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 351, Short.MAX_VALUE)
+                            .addComponent(txtUrl, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblQrCode, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lblStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(90, 90, 90))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,67 +126,71 @@ public class interfaceCliente extends javax.swing.JFrame{
                 .addGap(18, 18, 18)
                 .addComponent(lblTitulo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblUrl)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(btnEnviar))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnLimpar)))
+                .addComponent(lblStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblUrl)
+                    .addComponent(txtUrl, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnEnviar)
+                    .addComponent(btnLimpar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtURLencurtada, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(lblQrCode, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(52, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2)
-                        .addGap(118, 118, 118))))
+                    .addComponent(jLabel2)
+                    .addComponent(lblQrCode, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
-       txtURL.setText("");
-       txtUrlEncurtada.setText("");
+       txtUrl.setText("");
+       txtURLencurtada.setText("");
+       lblQrCode.setIcon(null);
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-        String url = txtURL.getText().trim();
+        String url = txtUrl.getText().trim();
         if (url.isEmpty()){
             JOptionPane.showMessageDialog(this, "Informe uma URL.");
+        }
+        if (interfaceRemota == null) {
+            JOptionPane.showMessageDialog(this, "Você não está conectado ao servidor!","Sem conexão", JOptionPane.WARNING_MESSAGE);
+            return;
         }
          // Pega o tamanho exato do seu JLabel para o QR Code se ajustar perfeitamente
         int largura = lblQrCode.getWidth();
         int altura = lblQrCode.getHeight();
-
         // Garante um tamanho mínimo caso o JLabel não esteja renderizado corretamente
         if (largura == 0 || altura == 0) {
             largura = 200;
             altura = 200;
         }
-
+        
         try {
+            // a busca no HashMap acontece no servidor; aqui chegam só os dados da sessão (ou null)
+            String urlEncurtada = interfaceRemota.encurtaUrl(url);
+            txtURLencurtada.setText(urlEncurtada);
+            
             QRCodeWriter qrCodeWriter = new QRCodeWriter();
-            BitMatrix bitMatrix = qrCodeWriter.encode(url, BarcodeFormat.QR_CODE, largura, altura);
-
-            // Gera a imagem diretamente na memória RAM
+            BitMatrix bitMatrix = qrCodeWriter.encode("https://" + urlEncurtada, BarcodeFormat.QR_CODE, largura, altura);
             BufferedImage bufferedImage = MatrixToImageWriter.toBufferedImage(bitMatrix);
-
             // Define a imagem em memória como o ícone do JLabel
-            lblQrCode.setIcon(new ImageIcon(bufferedImage));
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Erro ao gerar QR Code: " + e.getMessage());
-            e.printStackTrace();
+            lblQrCode.setIcon(new ImageIcon(bufferedImage));         
+        }
+        catch (RemoteException e) {
+            // servidor caiu ou a rede falhou no meio do caminho
+            interfaceRemota = null;
+            JOptionPane.showMessageDialog(this, "Erro na comunicação com o servidor.");
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Erro ao gerar QR Code: " + ex.getMessage());
+            ex.printStackTrace();
         }
 
     }//GEN-LAST:event_btnEnviarActionPerformed
@@ -217,12 +225,11 @@ public class interfaceCliente extends javax.swing.JFrame{
     private javax.swing.JButton btnLimpar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblQrCode;
+    private javax.swing.JLabel lblStatus;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblUrl;
-    private javax.swing.JTextArea txtURL;
-    private javax.swing.JTextArea txtUrlEncurtada;
+    private javax.swing.JTextField txtURLencurtada;
+    private javax.swing.JTextField txtUrl;
     // End of variables declaration//GEN-END:variables
 }
