@@ -9,7 +9,7 @@ end componentes_sistema;
 
 architecture arquitetura_sistema of componentes_sistema is
     component component_and
-        port(e: in bit; j: in bit; g: out bit)
+        port(e: in bit; f: in bit; g: out bit)
     end component
     component component_or
         port(h: in bit; i: in bit; j: out bit)
